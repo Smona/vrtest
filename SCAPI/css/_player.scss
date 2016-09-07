@@ -1,0 +1,49 @@
+$player-color: #111;
+$player-border: #888;
+$btn-color: #444;
+
+.art-display {
+	background: $player-border;
+	// position: absolute;
+	// top: 0;
+	// left: 0;
+	float: left;
+	height: 100px;
+	width: 100px;
+}
+
+#song-info {
+	background: black;
+	width: 400px;
+	height: 100px;
+}
+
+.player {
+	position: relative;
+	width: 500px;
+	height: 200px;
+	overflow: hidden;
+	background: $player-color linear-gradient(0deg, #616161, #9bc5c3);
+	border-radius: 6px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: space-between;
+	.btn {
+		// position: absolute;
+		// bottom: 20px;
+		margin: 0 7px 10px;
+		display: inline-block;
+		// left: 0;
+		background: $btn-color radial-gradient(circle at top, lighten($btn-color, 15%), $btn-color);
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		border: solid 1px $player-border;
+		&.playpause {
+			width: 80px;
+			height: 80px;
+		}
+	}
+}

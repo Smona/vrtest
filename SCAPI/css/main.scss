@@ -1,0 +1,17 @@
+$white: #FFF;
+$black: #0C0C0C;
+
+@import 'player';
+
+body {
+	background: #CCC;
+	font-family: 'Heebo', sans-serif;
+	// color: $white;
+}
+
+.truncate {
+ 	width: 280px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

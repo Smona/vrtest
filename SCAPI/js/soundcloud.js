@@ -21,6 +21,22 @@ function getTracks() {
 function loadTrack(trackId) {
 	var stream;
 	var playPause = $('#btn-playpause');
+	// Play track
+	SC.stream('/tracks/' + trackId).then(function(player){
+		stream = player;
+		stream.on('play', function () {playPause.removeClass('paused');});
+		stream.on('pause', function () {playPause.addClass('paused');});
+		// Arm player buttons
+		playPause.off();
+		playPause.on('click', function () {
+			if (playPause.hasClass('paused')) {
+				stream.play();
+			} else {
+				stream.pause();
+			}
+		})
+		stream.play();
+	});
 	// Load track information
 	SC.get('/tracks/' + trackId).then(function (resource) {
 		// Load Text information
@@ -30,22 +46,6 @@ function loadTrack(trackId) {
 		if (resource.artwork_url) {
 			$('.art-display').css('background-image', 'url(' + resource.artwork_url.replace('-large', '-crop') + ')');
 		}
-	});
-	SC.stream('/tracks/' + trackId).then(function(player){
-		stream = player;
-		// Arm player buttons
-		playPause.off();
-		playPause.removeClass('paused');
-		playPause.on('click', function () {
-			if (playPause.hasClass('paused')) {
-				stream.play();
-				setTimeout(function () {playPause.removeClass('paused');}, 50)
-			} else {
-				stream.pause();
-				setTimeout(function () {playPause.addClass('paused');}, 50)
-			}
-		})
-		stream.play();
 	});
 	console.log('Track loaded:' + trackId);
 	// return stream;

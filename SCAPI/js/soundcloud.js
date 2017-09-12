@@ -1,4 +1,3 @@
-
 $(function () {
 	SC.initialize({client_id: '28b05a26f8f8bec9d27bea7c938337ff'});
 	getTracks();

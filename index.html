@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, World! - A-Frame</title>
+    <meta name="description" content="Hello, World! - A-Frame">
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene vr-mode-ui stats>
+		<!-- A basic box demonstrating some of the available properties of Aframe -->
+	  <!-- <a-box src="images/texture.gif" color="#FFF" position="0 1.5 -6" rotation="45 0 45" width="2" height="2" depth="2">
+		  <a-animation begin="click" dur="3000" delay="500" easing="ease-out-bounce" repeat="indefinite" attribute="rotation" to="45 360 45" direction="alternate"></a-animation>
+	  </a-box> -->
+	  <a-plane look-at="#player" position="0 1.5 -6" color="white" width="6" height="2">
+		  <a-plane id="btn-playpause" color="blue" position="-2 0 .01" width="2" height="2"></a-plane>
+		  <a-plane id="btn-playpause" color="grey" position="1 .5 .01" width="4" height="1"></a-plane>
+		  <a-plane id="btn-playpause" color="blue" geometry="primitive: circle; radius: .4" position="1 -.45 .01"></a-plane>
+		  <a-plane id="btn-playpause" color="blue" geometry="primitive: circle; radius: .3" position="1.8 -.45 .01"></a-plane>
+		  <a-plane id="btn-playpause" color="blue" geometry="primitive: circle; radius: .3" position="0.2 -.45 .01"></a-plane>
+	  </a-plane>
+	  <!-- Lights -->
+	  <!-- <a-light type="point" color="#909" position="0 -10 0"></a-light> -->
+	  <!-- Background -->
+	  <a-sky color="#000"></a-sky>
+	  <a-camera id="player" position="0 1.8 0">
+		  <a-cursor color="#2E3A87"></a-cursor>
+	  </a-camera>
+    </a-scene>
+  </body>
+</html>
